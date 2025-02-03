@@ -6,7 +6,7 @@ import java.util.Random;
 public class NumberGuessingGame extends JFrame {
     private int targetNumber;
     private int attempts;
-    private int maxAttempts = 10;
+    private int maxAttempts = 5;
     private int roundsPlayed;
     private int roundsWon;
     private boolean gameActive;
@@ -113,7 +113,8 @@ public class NumberGuessingGame extends JFrame {
         gameActive = true;
         attempts = 0;
         targetNumber = random.nextInt(100) + 1;
-        statusLabel.setText("I'm thinking of a number between 1 and 100\n" + "\nYou have " + maxAttempts + " attempts remaining!");
+        statusLabel.setText(
+                "I'm thinking of a number between 1 and 100\n" + "\nYou have " + maxAttempts + " attempts remaining!");
         guessField.setEnabled(true);
         submitButton.setEnabled(true);
         startButton.setEnabled(false);
