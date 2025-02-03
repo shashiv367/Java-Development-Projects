@@ -32,10 +32,15 @@ public class NumberGuessingGame extends JFrame {
         setLayout(new BorderLayout(10, 10));
         setResizable(false);
 
+        // Set background color for the main content pane
+        getContentPane().setBackground(new Color(173, 216, 230)); // Light Blue
+
         // Title Panel
         JPanel titlePanel = new JPanel();
+        titlePanel.setBackground(new Color(173, 216, 230)); // Light Blue
         titleLabel = new JLabel("Number Guessing Game");
         titleLabel.setFont(new Font("Arial", Font.BOLD, 24));
+        titleLabel.setForeground(Color.BLACK); // Set text color to black for better contrast
         titlePanel.add(titleLabel);
         add(titlePanel, BorderLayout.NORTH);
 
@@ -43,19 +48,21 @@ public class NumberGuessingGame extends JFrame {
         JPanel gamePanel = new JPanel();
         gamePanel.setLayout(new BoxLayout(gamePanel, BoxLayout.Y_AXIS));
         gamePanel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
+        gamePanel.setBackground(new Color(173, 216, 230)); // Light Blue
 
         // Status Label
         statusLabel = new JLabel("Press Start to begin!");
         statusLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
         statusLabel.setFont(new Font("Arial", Font.PLAIN, 14));
+        statusLabel.setForeground(Color.BLACK); // Set text color to black for better contrast
         gamePanel.add(statusLabel);
         gamePanel.add(Box.createRigidArea(new Dimension(0, 20)));
 
         // Guess Input Panel
         JPanel inputPanel = new JPanel();
+        inputPanel.setBackground(new Color(173, 216, 230)); // Light Blue
         guessField = new JTextField(10);
         guessField.setFont(new Font("Arial", Font.PLAIN, 14));
-        guessField.setEnabled(false);
         inputPanel.add(guessField);
         gamePanel.add(inputPanel);
         gamePanel.add(Box.createRigidArea(new Dimension(0, 10)));
@@ -63,13 +70,13 @@ public class NumberGuessingGame extends JFrame {
         // Submit Button
         submitButton = new JButton("Submit Guess");
         submitButton.setAlignmentX(Component.CENTER_ALIGNMENT);
-        submitButton.setEnabled(false);
         gamePanel.add(submitButton);
         gamePanel.add(Box.createRigidArea(new Dimension(0, 20)));
 
         // Stats Label
         statsLabel = new JLabel("Rounds Played: 0 | Rounds Won: 0");
         statsLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
+        statsLabel.setForeground(Color.BLACK); // Set text color to black for better contrast
         gamePanel.add(statsLabel);
 
         add(gamePanel, BorderLayout.CENTER);
@@ -77,6 +84,7 @@ public class NumberGuessingGame extends JFrame {
         // Button Panel
         JPanel buttonPanel = new JPanel();
         buttonPanel.setLayout(new FlowLayout());
+        buttonPanel.setBackground(new Color(173, 216, 230)); // Light Blue
 
         startButton = new JButton("Start Game");
         startButton.setBackground(new Color(76, 175, 80));
@@ -113,8 +121,11 @@ public class NumberGuessingGame extends JFrame {
         gameActive = true;
         attempts = 0;
         targetNumber = random.nextInt(100) + 1;
-        statusLabel.setText(
-                "I'm thinking of a number between 1 and 100\n" + "\nYou have " + maxAttempts + " attempts remaining!");
+        statusLabel.setHorizontalAlignment(SwingConstants.CENTER);
+        statusLabel.setText("<html><div style='text-align: center;'>"
+                + "I'm thinking of a number between 1 and 100<br>"
+                + "You have " + maxAttempts + " attempts remaining!"
+                + "</div></html>");
         guessField.setEnabled(true);
         submitButton.setEnabled(true);
         startButton.setEnabled(false);
